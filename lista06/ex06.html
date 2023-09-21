@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 06</title>
+</head>
+<body>
+    <p>Qual time grande de SP você torce?</p>
+    <input type="text" id="id_time" placeholder="Corinthians, Palmeiras, Santos ou São Paulo"> <br><br>
+    <button onclick="timeSP()">Fale sobre esse time</button> <br><br>
+    <span id="resultado"></span>
+</body>
+</html>
+<script>
+    function timeSP(){
+        var time = id_time.value;
+
+        if (time == 'Corinthians'){
+            resultado.innerHTML = `<p style="background-color:black;color:white;">Salve o Corinthians</p>`
+        } else if (time == 'Palmeiras'){
+            resultado.innerHTML = `<p style="background-color:green;color:white;"> Salve o alviverder imponente</p>`
+        } else if (time == 'Santos'){
+            resultado.innerHTML = `<p>Agora quem dá a bola é o Santos</p>`
+        }else {
+            resultado.innerHTML = `<p style="background-color:black;color:red;">Salve o Tricolor paulista</p>`
+        }
+    }
+</script>

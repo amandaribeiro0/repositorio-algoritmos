@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 07</title>
+</head>
+<body>
+    <p>Digite seu nome:</p>
+    <input type="text" id="nome">
+
+    <p>Digite a distancia em km entre o local atual para o destino</p>
+    <input type="text" id="distancia">
+
+    <p>Digite a bandeira da corrida</p>
+    <input type="number" min="1" max="3" id="bandeira">
+
+    <p>Digite o horário da corrida (sistema de 24 horas e somente horas inteiras)</p>
+    <input type="number" min="0" max="23" id="horario">
+
+    <br><br>
+    <button onclick="calcularCorrida()">Calcular corrida</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+</html>
+
+<script>
+    function calcularCorrida(){
+        var nomeUsuario = nome.value;
+        var distanciaKm = Number(distancia.value);
+        var bandeiraCorrida = Number(bandeira.value);
+        var horarioCorrida = Number(horario.value);
+        var valorFinal = distanciaKm * 1.25;
+        var acrescimo;
+
+        if(bandeiraCorrida == 1){
+            if (horarioCorrida <= 6){
+                acrescimo = valorFinal * 0.05;
+                valorFinal = valorFinal + acrescimo;
+            }
+            if(horarioCorrida >= 7){
+                if(horarioCorrida <=12){
+                    acrescimo = valorFinal * 0.10;
+                    valorFinal = valorFinal + acrescimo;
+                }
+            }
+            if(horarioCorrida>=13){
+                if(horarioCorrida<=23){
+                    acrescimo = valorFinal * 0.15;
+                    valorFinal = valorFinal + acrescimo; 
+                }
+            }
+        }
+        if(bandeiraCorrida == 2){
+            if (horarioCorrida <= 6){
+                acrescimo = valorFinal * 0.10;
+                valorFinal = valorFinal + acrescimo;
+            }
+            if(horarioCorrida >= 7){
+                if(horarioCorrida <= 12){
+                    acrescimo = valorFinal * 0.20;
+                    valorFinal = valorFinal + acrescimo;
+                }
+            }
+            if(horarioCorrida>=13){
+                if(horarioCorrida<=23){
+                    acrescimo = valorFinal * 0.30;
+                    valorFinal = valorFinal + acrescimo; 
+                }
+            }
+        }
+        if(bandeiraCorrida == 3){
+            if (horarioCorrida <= 6){
+                acrescimo = valorFinal * 0.15;
+                valorFinal = valorFinal + acrescimo;
+            }
+            if(horarioCorrida >= 7){
+                if(horarioCorrida <= 12){
+                    acrescimo = valorFinal * 0.30;
+                    valorFinal = valorFinal + acrescimo;
+                }
+            }
+            if(horarioCorrida>=13){
+                if(horarioCorrida<=23){
+                    acrescimo = valorFinal * 0.45;
+                    valorFinal = valorFinal + acrescimo; 
+                }
+            }
+        }
+
+        resultado.innerHTML = `Olá ${nomeUsuario} Sua corrida, será na bandeira ${bandeiraCorrida}, 
+        percorrerá ${distanciaKm} km e o total da corrida será de ${valorFinal}`
+
+    }
+</script>

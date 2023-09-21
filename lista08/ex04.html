@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 04</title>
+</head>
+<body>
+    <p>Digite o modo de pagamento:</p>
+    <input type="text" id="modo_pagamento" placeholder="Dinheiro, débito, crédito ou boleto">
+    <button onclick="analisarCompra()">Analisar compra</button> <br><br>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function analisarCompra(){
+        var modoPagamento = modo_pagamento.value;
+
+        if(modoPagamento == 'Dinheiro' || modoPagamento == 'Débito'){
+            resultado.innerHTML = "Você terá que pagar a vista"
+        } else{
+            resultado.innerHTML  = "Pagamento poderá ser parcelado"
+        }
+    }
+</script>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 04</title>
+</head>
+<body>
+    <p>Digite a frquencia do aluno:</p>
+    <input id="frequencia">
+    <br><br> <button onclick="analisar()">Analisar frequência</button>
+    <br><br> <div id="resultado"></div>
+    
+</body>
+</html>
+<script>
+    function analisar(){
+        var frequencia_aluno = Number(frequencia.value);
+
+        if(frequencia_aluno < 50){
+            resultado.innerHTML = 
+            `<img style="width: 300px;" 
+            src="https://img.freepik.com/fotos-gratis/casal-de-turistas-felizes-segurando-um-mapa_329181-533.jpg?w=2000" >`
+        }else{
+            resultado.innerHTML = 
+            `<img style="width: 300px;" 
+            src="https://www.mundobrink.com/blog/wp-content/uploads/2016/03/TDHA-750x410.jpg" >`
+        }
+    }
+</script>

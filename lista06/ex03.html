@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03</title>
+</head>
+
+<body>
+    <p>Digite uma temperatura</p> <br>
+    <input type="number" id="id_temperatura"> <br><br>
+    <button onclick="analisarTemperatura()">Analisar temperatura</button>
+    <br><br>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    function analisarTemperatura() {
+        var temperatura = Number(id_temperatura.value);
+
+        if (temperatura < 14) {
+            resultado.innerHTML = `Para o ser humano, a temperatura é... Congelante`
+        } else if (temperatura <= 21) {
+            resultado.innerHTML = `Para o ser humano, a temperatura é... Com frio`
+        } else if (temperatura <= 24) {
+            resultado.innerHTML = `Para o ser humano, a temperatura é... Confortável`
+        } else if (temperatura <= 31) {
+            resultado.innerHTML = `Para o ser humano, a temperatura é... Com Calor`
+        } else {
+            resultado.innerHTML = `Para o ser humano, a temperatura é... Calor escaldante`
+        }
+    }   
+</script>

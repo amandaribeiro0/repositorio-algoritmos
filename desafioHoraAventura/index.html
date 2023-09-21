@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Digite seu nome: <br>
+    <input id="nome"> <br><br>
+
+    Digite o nome do último reino que esteve se aventurando: <br>
+    <input id="ultimoReino"> <br><br>
+
+    Digite sua idade: <br>
+    <input id="idade" type="number" min="0" max="1000"> <br><br>
+
+    Digite a quantidade de inimigos derrotados: <br>
+    <input id="inimigos" type="number" min="0"> <br><br>
+
+    Digite a quantidade de moedas de ouro que você tem: <br>
+    <input id="moedas" type="number" min="0"><br><br>
+
+    <button onclick="iniciar()">Iniciar Exploração</button> <br><br><br>
+
+    <div id="resultado"></div>
+</body>
+
+</html>
+<script>
+    function iniciar() {
+        var nome_user = nome.value;
+        var ultimo_reino = ultimoReino.value;
+        var idade_user = Number(idade.value);
+        var qtdInimigos = Number(inimigos.value);
+        var qtdMoedas = Number(moedas.value);
+        var proxReino;
+
+        if (ultimo_reino == "Doce") {
+            if (qtdMoedas > 80) {
+                if (idade_user >= 10) {
+                    proxReino = 'Fogo'
+                    var acrescimo = qtdMoedas * 0.08;
+                    resultado.innerHTML = `Olá <b>${nome_user}</b>, que bom te ver por aqui. Ao entrar no reino de fogo o seu dinheiro ganhará um acréscimo de 8% em moedas de ouro que será <b>${acrescimo}</b> moedas, sendo assim o valor total do seu dinheiro agora será de <b>${qtdMoedas + acrescimo}</b> moedas`
+
+                    alert('Tome cuidado para não se apaixonar pela princesa de fogo!')
+                }
+                if (idade_user < 10) {
+                    alert('Você não pode ir para o reino Fogo pois você está muito Novo')
+                }
+            }
+        };
+
+        if (ultimo_reino == "Fogo") {
+            if (qtdMoedas >= 500) {
+                if (idade_user < 14) {
+                    proxReino = 'Gelado'
+                    var perda = qtdMoedas * 0.13;
+                    resultado.innerHTML = `<span>
+                        Olá <b>${nome_user}</b>, que bom te ver por aqui. Ao entrar no reino de gelo o seu dinheiro sofrerá uma perda de 13% em moedas de ouro que será <b${perda}></b> moedas, sendo assim o valor total do seu dinheiro agora será de <b>${qtdMoedas - perda}</b> moedas</span>`
+                    alert('Dê um olá ao Gunter por ele ser um pinguim maneiro')
+                }
+                if (idade_user >= 14) {
+                    alert('Você não pode ir para o reino Gelado pois você está muito velho')
+                }
+
+            }
+            if (qtdMoedas < 500) {
+                alert('Você não pode ir para o reino Gelado pois você está muito pobre')
+            }
+        };
+
+        if (ultimo_reino == "Gelado") {
+            if (qtdMoedas > 3000) {
+                if (qtdMoedas < 5000) {
+                    if (idade_user >= 15) {
+                        if (idade_user <= 17) {
+                            if (qtdInimigos < 60) {
+                                proxReino = 'Geleca'
+                                var perda = qtdMoedas * 0.31;
+                                resultado.innerHTML = `<p>Olá <b>${nome_user}</b>, que bom te ver por aqui. Ao entrar no reino de geleca o seu dinheiro sofrerá uma perda de 31% em moedas de ouro que será <b>${perda}</b> moedas, porém haverá um acréscimo de 2000 moedas de ouro, sendo assim o valor total do seu dinheiro agora será de <b>${(qtdMoedas - perda) + 2000}</b> moedas</p>`
+
+                                alert('Tome cuidado com as amoebas que surgirem pelo caminho')
+                            }
+                            if(qtdInimigos > 60){
+                                alert('Você não pode ir para o reino Geleca pois você está muito forte')
+                            }
+                        }
+                    }
+                    if(idade_user < 15){
+                        alert('Você não pode ir para o reino Geleca pois você está muito Novo')
+                    }
+                    if(idade_user >17){
+                        alert('Você não pode ir para o reino Geleca pois você está muito velho')
+                    }
+                }
+            }
+            if(qtdMoedas < 3000){
+                alert('Você não pode ir para o reino Geleca pois você está muito pobre')
+            }
+            if(qtdMoedas > 5000){
+                alert('Você não pode ir para o reino Geleca pois você está muito rico')
+            }
+        };
+
+        if (ultimo_reino == "Geleca") {
+            if (qtdMoedas >= 5001) {
+                if (qtdMoedas <= 8999) {
+                    if (idade_user >= 19) {
+                        if (idade_user <= 32) {
+                            if (qtdInimigos >= 100) {
+                                if (qtdInimigos <= 150) {
+                                    proxReino = 'Caroço'
+                                    var acrescimo = qtdMoedas * 0.286;
+
+                                    resultado.innerHTML = `<i>Olá <b>${nome_user}</b>, que bom te ver por aqui. Ao entrar no reino de caroço o seu dinheiro ganhará um acréscimo de 28.6% em moedas de ouro que será <b>${acrescimo}</b>> moedas, sendo assim o valor total do seu dinheiro agora será de <b>${qtdMoedas + acrescimo}</b> moedas</i>`
+
+                                    alert('Mande um abraço para a princesa caroço')
+                                }
+                            }
+                            if(qtdInimigos < 100){
+                                alert('Você não pode ir para o reino Caroço pois você está muito fraco')
+                            }
+                            if(qtdInimigos > 150){
+                                alert('Você não pode ir para o reino Caroço pois você está muito forte')
+                            }
+                        }
+                    }
+                    if(idade_user < 19){
+                        alert('Você não pode ir para o reino Caroço pois você está muito Novo')
+                    }
+                    if(idade_user > 32){
+                        alert('Você não pode ir para o reino Caroço pois você está muito velho')
+                    }
+                }
+            }
+            if(qtdMoedas < 5001){
+                alert('Você não pode ir para o reino Caroço pois você está muito pobre')
+            }
+            if(qtdMoedas > 8999){
+                alert('Você não pode ir para o reino Caroço pois você está muito rico')
+            }
+        };
+
+        if (ultimo_reino == "Caroço") {
+            if (qtdMoedas > 9000) {
+                if (idade_user >= 754) {
+                    if (idade_user <= 1000) {
+                        if (qtdInimigos >= 200) {
+                            proxReino = 'Vampiros'
+                            var ganhos = qtdMoedas * 1.6298;
+                            var perda = ganhos - (ganhos * 0.8712);
+                            var total = ganhos - perda;
+
+                            resultado.innerHTML = `<b>Olá ${nome_user}, que bom te ver por aqui. Ao entrar no reino dos vampiros o seu dinheiro ganhará um acréscimo de 62.98% em moedas de ouro e perderá desse total 87.12% em moedas de ouro que será o equivalente a ${total} moedas, sendo assim o valor total do seu dinheiro agora será de ${perda} moedas<b>`
+
+                            alert('A cor vermelha vai salvar a sua vida nesse lugar')
+                        }
+                    }
+                    if(qtdInimigos< 200){
+                        alert('Você não pode ir para o reino Vampiros pois você está muito fraco')
+                    }
+                }
+                if(idade_user < 754){
+                    alert('Você não pode ir para o reino Vampiros pois você está muito Novo')
+                }
+                if(idade_user> 1000){
+                    alert('Você não pode ir para o reino Vampiros pois você está muito velho')
+                }
+            }
+            if(qtdMoedas <= 9000){
+                alert('Você não pode ir para o reino Vampiros pois você está muito pobre')
+            }
+        };
+
+        if (ultimo_reino == 'Vampiros') {
+            alert('Parabéns, você concluiu com maestria todos os reinos')
+        };
+
+    }
+</script>

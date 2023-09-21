@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+<body>
+    Digite a quantidade de votos do Candidato A:
+    <br>
+    <input type="text"  id="candidatoA">
+    <br><br>
+    Digite a quantidade de votos do Candidato B:
+    <br>
+    <input type="text" id="candidatoB">
+    <br><br>
+    Digite a quantidade de votos brancos:
+    <br>
+    <input type="text" id="brancos">
+    <br><br>
+    Digite a quantidade de votos nulos:
+    <br>
+    <input type="text" id="nulos">
+    <br><br>
+    <button onclick="resultado()">Resultado da Eleição</button>
+    <br><br>
+    <div id="resultadoEleicao"></div>
+</body>
+</html>
+
+<script>
+     function resultado(){
+            var totalVotos = Number(candidatoA.value) + Number(candidatoB.value) + Number(brancos.value) + Number(nulos.value)
+            var candidato_a = Number(candidatoA.value * 100) / totalVotos
+            var candidato_b = Number(candidatoB.value * 100) / totalVotos
+            var votos_invalidos = ((Number(brancos.value) + Number(nulos.value)) * 100) / totalVotos
+            resultadoEleicao.innerHTML = `
+            Total de votos: <u>${totalVotos}</u><br>
+            Candidato A: ${candidato_a}% (${candidatoA.value} votos)<br>
+            Candidato B: ${candidato_b}% (${candidatoB.value} votos)<br>
+            Inválidos: ${votos_invalidos}% (${Number(brancos.value) + Number(nulos.value)} votos)
+            `
+        }
+
+</script>

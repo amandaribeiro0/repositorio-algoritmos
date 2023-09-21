@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+<body>
+    <p>Digite sua renda:</p>
+    <input id="id_rendaUser">
+    <p>Digite a total da familia:</p>
+    <input id="id_rendaFamilia"> <br> <br>
+    <button onclick="verificarAjuda()">Verificar ajuda</button>
+</body>
+</html>
+<script>
+    function verificarAjuda(){
+        var rendaUser = Number(id_rendaUser.value);
+        var rendaFamilia = Number(id_rendaFamilia.value);
+
+        if( rendaUser <= 1050 && rendaFamilia <= 2100){
+            alert("Você terá direito!")
+        }else{
+            alert("Você NÃO terá direito")
+        }
+    }
+</script>

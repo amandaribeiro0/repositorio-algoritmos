@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETECTANDO COLISÕES</title>
+</head>
+<body>
+    <p>Digite o eixo X0 do retangulo 1</p>
+    <input type="number" id="retangulo1_X0"><br>
+
+    <p>Digite o eixo Y0 do retangulo 1</p>
+    <input type="number" id="retangulo1_Y0"><br>
+
+    <p>Digite o eixo X1 do retangulo 1</p>
+    <input type="number" id="retangulo1_X1"><br>
+
+    <p>Digite o eixo Y1 do retangulo 1</p>
+    <input type="number" id="retangulo1_Y1"><br>
+                <!--  -->
+    <p>Digite o eixo X0 do retangulo 2</p>
+    <input type="number" id="retangulo2_X0"><br>
+
+    <p>Digite o eixo Y0 do retangulo 2</p>
+    <input type="number" id="retangulo2_Y0"><br>
+
+    <p>Digite o eixo X1 do retangulo 2</p>
+    <input type="number" id="retangulo2_X1"><br>
+
+    <p>Digite o eixo Y1 do retangulo 2</p>
+    <input type="number" id="retangulo2_Y1"><br><br>
+    
+    <button onclick="detectar()">DETECTAR COLISÕES</button>
+    <br>
+    <span id="resultado"></span>
+    
+</body>
+</html>
+
+<script>
+    function detectar(){
+        var r1_X0 = Number(retangulo1_X0.value);
+        var r1_Y0 = Number(retangulo1_Y0.value);
+        var r1_X1 = Number(retangulo1_X1.value);
+        var r1_Y1 = Number(retangulo1_Y1.value);
+
+        var r2_X0 = Number(retangulo2_X0.value);
+        var r2_Y0 = Number(retangulo2_Y0.value);
+        var r2_X1 = Number(retangulo2_X1.value);
+        var r2_Y1 = Number(retangulo2_Y1.value);
+
+      var difY0 = r2_Y0 - r1_Y0 ;
+      var difY1 =  r2_Y1 - r1_Y1 ;
+
+      if (difY0 >= 2){
+            if(difY1 >=2){
+                resultado.innerHTML = `NÃO TEM`
+            }
+      }
+      else{
+        resultado.innerHTML = `TEM`
+      }
+    //   if (difY0 < 2){
+    //     resultado.innerHTML = `TEM`
+    //   }
+    //   if(difY1 <2 ){
+    //     resultado.innerHTML = `TEM`
+    //   }
+    }
+</script>

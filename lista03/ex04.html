@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 04</title>
+</head>
+<body>
+    <h2>PIZZA</h2>
+    Digite o sabor da pizza:
+    <br>
+    <input type="text" id="saborPizza">
+    <br><br>
+    Digite o valor da pizza:
+    <br>
+    <input type="text" id="valorPizza">
+    <br><br>
+    Digite quantas pessoas vão comer:
+    <br>
+    <input type="text" id="qtdAmigos">
+    <br><br>
+    <button onclick="calcular()">Ver valor por amigo</button>
+    <br><br>
+    <div id="valorAmigo"></div>   
+</body>
+</html>
+<script>
+    function calcular(){
+        var valorFinal = (Number(valorPizza.value) + valorPizza.value * 0.10 ) / qtdAmigos.value
+        valorAmigo.innerHTML = `
+            Cada amigo vai colaborar com R$${valorFinal} para a pizza de ${saborPizza.value}.
+        `
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 05</title>
+</head>
+<body>
+    <h3>Algoritmolândia</h3>
+    <p>Digite a quantidade de KWh consumida no mês:</p>
+    <input id="kwhMes">
+    <br><br>
+    <button onclick="calcularLuz()">Calcular conta de luz</button>
+    <br>
+</body>
+</html>
+
+<script>
+    function calcularLuz(){
+        var KWHMes = Number(kwhMes.value);
+        var contaMes = KWHMes * 0.85;
+        console.log("aaaa")
+        var desconto = contaMes * 0.1;
+
+        if(KWHMes < 100){
+            alert(`A sua conta é no valor de R$${contaMes - desconto}`)
+        }
+        if(KWHMes >= 100){
+            alert(`A sua conta é no valor de R$${contaMes}`)
+        }
+    }
+</script>

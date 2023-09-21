@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 08</title>
+</head>
+
+<body>
+    <p> Digite quantos pães franceses tem comido por dia:</p>
+    <input type="number" id="qtd_pao">
+    <p>Digite quantos pacotes de bolacha recheada tem comido por dia:</p>
+    <input type="number" id="qtd_bolacha">
+    <p>Digite quantos copos de achocolatado tem tomado por dia:</p>
+    <input type="number" id="qtd_achocolatado"> <br><br>
+    <button onclick="verificarKcal()">Verificar calorias</button> <br><br>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    function verificarKcal() {
+        var qtdPao = Number(qtd_pao.value);
+        var qtdBolacha = Number(qtd_bolacha.value);
+        var qtdAchocolatado = Number(qtd_achocolatado.value);
+
+        // Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70. 
+
+        var kcalPao = qtdPao * 50;
+        var kcalBolacha = qtdBolacha * 80;
+        var kcalAchocolatado = qtdAchocolatado * 70;
+
+        var kacalTotal = kcalAchocolatado + kcalBolacha + kcalPao;
+        if (kacalTotal < 200) {
+            resultado.innerHTML = "Parabéns, vai ficar em forma !"
+        } else if (kacalTotal <= 400) {
+            resultado.innerHTML = "Cuidado, vai ficar menos saudável !"
+        } else {
+            resultado.innerHTML = "Alerta crítico de saúde !!!"
+        }
+    }
+</script>

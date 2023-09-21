@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+<body>
+    <p>Digite sua renda mensal:</p>
+    <input type="number" id="renda_mensal"> <br> <br>
+    <button onclick="analisarRenda()" >Analisar Renda</button> <br><br>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function analisarRenda(){
+        var rendaMensal = Number(renda_mensal.value);
+
+        if(rendaMensal <= 250){
+            resultado.innerHTML = `Classe E`
+        } else if(rendaMensal <= 900){
+            resultado.innerHTML = `Classe D`
+        } else if (rendaMensal <= 2500){
+            resultado.innerHTML = `Classe C`
+        }else if(rendaMensal <= 9500){
+            resultado.innerHTML = `Classe B`
+        }else {
+            resultado.innerHTML = `Classe A`
+        }
+
+    }
+</script>
+<!-- a) Solicite a renda familiar mensal 
+
+b) Ao clicar no botão “Analisar Renda”, deve aparecer abaixo uma dessas frases:   
+
+   "Classe E" (até 250) 
+
+   "Classe D" (+250 até 900) 
+
+   "Classe C" (+900 até 2500) 
+
+   "Classe B" (+2500 até 9500) 
+
+   "Classe A" (+9500) -->

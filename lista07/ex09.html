@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 09</title>
+</head>
+
+<body>
+    <p>Digite o intervalo de altura desejada</p>
+    <p>Altura inicial</p>
+    <input type="number" id="altura_inicial">
+    <p>Altura final</p>
+    <input type="number" id="altura_final">
+    <p>Digite o nome do piloto:</p>
+    <input type="text" id="nome_piloto">
+    <p>Digite a altura do piloto:</p>
+    <input type="number" id="altura_piloto">
+    <br><br> <button onclick="verificarAltura()">Verificar altura</button>
+    <br><br>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    function verificarAltura() {
+        var alturaInicial = Number(altura_inicial.value);
+        var alturaFinal = Number(altura_final.value);
+        var nomePiloto = nome_piloto.value;
+        var alturaPiloto = Number(altura_piloto.value);
+
+        if (alturaInicial > 1 && alturaFinal > alturaInicial) {
+            if (alturaPiloto >= alturaInicial && alturaPiloto <= alturaFinal) {
+                resultado.innerHTML += `O candidato ${nomePiloto} com altura de ${alturaPiloto}m participará do processo de seleção de piloto<br>`
+            } else {
+                resultado.innerHTML += `Infelizmente o candidato ${nomePiloto} com altura de ${alturaPiloto}m não atende os requisitos<br>`
+            }
+        } else {
+            alert('Intervalo invalido.')
+        }
+    }
+
+</script>

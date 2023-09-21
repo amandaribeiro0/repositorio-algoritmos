@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+<body>
+    <p>Digite a quantidade de latinhas que bebe por dia:</p>
+    <input id="latinhas">
+    <button onclick="qtdRefri()" >Quantos refris?</button>
+    <p id="mensagem"></p>
+</body>
+</html>
+
+<script>
+    function qtdRefri(){
+       var qtdDiaria = Number(latinhas.value);
+       // console.log(qtdDiaria)
+       var qtdAnual = qtdDiaria * 365;
+
+       mensagem.innerHTML = `Você consome ${qtdAnual} latinhas por ano`
+       
+       if (qtdAnual >= 500){
+            mensagem.innerHTML = `
+            Cuidado com a diabetes! <br>
+            Você consome ${qtdAnual} latinhas por ano`
+       }
+    }
+</script>

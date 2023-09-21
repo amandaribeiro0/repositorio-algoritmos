@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 05</title>
+</head>
+<body>
+    Digite o valor da passagem de onibus:
+    <br>
+    <input type="text" id="passagem">
+    <br><br>
+    Digite a quantidade de viagens feitas por mês:
+    <br>
+    <input type="text" id="viagens">
+    <br><br>
+    Digite a disância do trabalho até sua casa:(em km):
+    <br>
+    <input type="text" id="distancia">
+    <br><br>
+    <button onclick="calcularVT()">Calcular VT</button>
+    <br><br>
+    <div id="vt"></div>
+</body>
+</html> 
+<script>
+    function calcularVT(){
+        var viagensOnibus = (viagens.value * 0.9) * passagem.value;
+        var viagensApp = (viagens.value * 0.1) * (distancia.value * 0.75);
+        var vtTotal = viagensApp + viagensOnibus;
+
+        vt.innerHTML = `
+            Você vai gastar R$${vtTotal} por mês com transporte.
+        `
+    }
+</script>

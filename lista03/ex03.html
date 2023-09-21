@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03</title>
+</head>
+<body>
+    <h2>Tabuada</h2>
+    Digite o númmero que deseja ver a tabuada:
+    <br>
+    <input type="text" id="numero">
+    <br><br>
+    <button onclick="verTabuada()" >Ver tabuada</button>
+    <br><br>
+    <div id="tabuada"></div>
+</body>
+</html>
+<script>
+    function verTabuada(){
+        let num = numero.value;
+
+        tabuada.innerHTML = `
+            ${num} X 1 = ${num * 1} <br>
+            ${num} X 2 = ${num * 2} <br>
+            ${num} X 3 = ${num * 3} <br>
+            ${num} X 4 = ${num * 4} <br>
+            ${num} X 5 = ${num * 5} <br>
+            ${num} X 6 = ${num * 6} <br>
+            ${num} X 7 = ${num * 7} <br>
+            ${num} X 8 = ${num * 8} <br>
+            ${num} X 9 = ${num * 9} <br>
+            ${num} X 10 = ${num * 10} <br>
+        `
+    }
+
+</script>
