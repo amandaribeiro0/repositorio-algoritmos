@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 08</title>
+</head>
+<body>
+    <p>Digite o nome da empresa</p>
+    <input type="text" id="nome_empresa">
+
+    <p>Digite o valor da bolsa da empresa</p>
+    <input type="number" id="bolsa_empresa">
+
+    <p>Digite o valor do VR da empresa</p>
+    <input type="number" id="vr_empresa">
+
+    <p>Digite o tempo de deslocamento da empresa para a SPTech</p>
+    <input type="number" id="deslocamento_empresa">
+
+    <br> <br> <button onclick="preferida()">É preferida?</button>
+
+     <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function preferida(){
+        var nomeEmpresa = nome_empresa.value;
+        var bolsaEmpresa = bolsa_empresa.value;
+        var vrEmpresa = vr_empresa.value;
+        var deslocamento = deslocamento_empresa.value;
+
+        if(bolsaEmpresa >= 1800 || vrEmpresa >= 20 || deslocamento <= 30){
+            resultado.innerHTML = `A empresa ${nomeEmpresa} é uma de suas preferências`
+        }else{
+            resultado.innerHTML = `A empresa ${nomeEmpresa} está fora da sua lista`
+        }
+    }
+</script>

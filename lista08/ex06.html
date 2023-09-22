@@ -8,7 +8,7 @@
 <body>
     <h1>Calculadora de cansaço do aluno SPTech.</h1>
     <p>Meio de transporte</p>
-    <input type="text" id="meio_transporte" placeholder="Ônibus, Metrô, Carro, Bicicleta ou Lotação" >
+    <input type="text" id="meio_transporte" >
     <br><br>
     <button onclick="calcularCansaco()">Calcular cansaço</button>
     <br><br>
@@ -18,17 +18,14 @@
     function calcularCansaco(){
         var meioTransporte = meio_transporte.value;
 
-       
+       if(meioTransporte == 'Carro' || meioTransporte == 'Bicicleta'){
+        alert("Tá tranquilo...")
+       }else if (meioTransporte == 'Metrô'){
+        alert("Um pouco cansado.")
+       } else if(meioTransporte == 'Ônibus' || meioTransporte == 'Lotação'){
+        alert("Vish...vive cansado")
+       }else{
+        alert("Digite um valor valido. \nÔnibus, Metrô, Carro, Bicicleta ou Lotação ")
+       }
     }
 </script>
-
-<!-- 
-
-c) Tenha o botão "Calcular cansaço" que ao clicar mostrar em um alerta o nível de cansaço do usuário. 
-
-d) Se o meio de transporte escolhido for "Carro" OU "Bicicleta", exiba em um alert: "Tá tranquilo ..." 
-
-e) Se o meio de transporte escolhido for "Metrô", exiba em um alert: "Um pouco cansado". 
-
-f) Se o meio de transporte escolhido for "Ônibus" OU "Lotação", exiba em um alert: "Vish ... vive cansado." 
- -->
