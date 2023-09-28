@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03</title>
+</head>
+
+<body>
+    <div style="color:blue;">
+        Total guardado no cofrinho: R$ <u id="id_totalGuardado">0</u> <br>
+        Depósitos efetuados: R$ <u id="id_depositos">0</u> <br>
+        Retiradas efetuadas: R$ <u id="id_retiradas">0</u> <br>
+
+    </div>
+    <br>
+    <button onclick="depositar050()">Depositar 0,50</button>
+    <button onclick="depositar2()">Depositar 2,00</button>
+    <button onclick="retirar050()">Retirar 0,50</button>
+    <br> <br><button onclick="retirar()">Retirar</button> 
+    <input type="number" id="id_valor" placeholder="Valor para ser retirar">
+</body>
+</html>
+<script>
+    
+    var totalGuardado = 0;
+    var depositos = 0;
+    var retiradas = 0;
+    var valor = 0;
+
+    function depositar050(){
+        depositos += 1;
+        totalGuardado += 0.5;
+        id_totalGuardado.innerHTML = totalGuardado;
+        id_depositos.innerHTML = depositos;
+    }
+
+    function depositar2(){
+        depositos += 1;
+        totalGuardado += 2;
+        id_totalGuardado.innerHTML = totalGuardado;
+        id_depositos.innerHTML = depositos;
+    }
+
+    function retirar050(){
+        retiradas += 1;
+        totalGuardado -= 0.5;
+        id_totalGuardado.innerHTML = totalGuardado;
+        id_retiradas.innerHTML = retiradas;
+    }
+
+    function retirar(){
+        valor = Number(id_valor.value);
+        retiradas += 1;
+        totalGuardado -=  valor;
+        id_retiradas.innerHTML = retiradas;
+        id_totalGuardado.innerHTML = totalGuardado;
+    }
+</script>

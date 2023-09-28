@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clicar()">Clique em mim</button>
+    <span id="resultado">Cliques</span> <span id="id_zero">0</span>
+</body>
+</html>
+<script>
+    
+    function clicar(){
+        var zero = Number(id_zero.innerHTML);
+      
+        zero += 1;
+        id_zero.innerHTML = zero;
+    }
+</script>

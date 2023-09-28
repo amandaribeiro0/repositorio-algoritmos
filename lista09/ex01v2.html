@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 01</title>
+</head>
+<body>
+    
+        <img id="imagem" width="500px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png" >
+   
+    
+    <br>
+    <button onclick="aumentarLargura()">Aumentar largura</button>
+    <button onclick="reduzirLargura()">Reduzir largura</button>
+</body>
+</html>
+<script>
+    var largura = 500;
+   function aumentarLargura(){
+        largura += 10;
+        imagem.style.width = `${largura}px`
+   }
+
+   function reduzirLargura(){
+        largura -= 10;
+        imagem.style.width = `${largura}px`
+   }
+</script>
