@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 12 </title>
+</head>
+
+<body>
+    <p>Digite qual tabuada deseja ver</p>
+    <select id="id_numTabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+
+    <p>Digite até que número a tabuada deve ser construída</p>
+    <input type="number" id="id_multiplicador">
+
+    <br><br> <button onclick="verTabuada()">Ver tabuada</button>
+    <br>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    function verTabuada() {
+        var numTabuada = Number(id_numTabuada.value);
+        var multiplicador = Number(id_multiplicador.value);
+        var incremento = 1;
+
+        while (incremento <= multiplicador) {
+            // resultado.innerHTML += `${numTabuada} x ${incremento} = ${numTabuada * incremento}<br>`
+            // if(incremento % 2 == 0){
+            //     resultado.innerHTML += `<span style="color:blue;">${numTabuada} x ${incremento} = ${numTabuada * incremento}<br></span>`
+            // }else{
+            //     resultado.innerHTML += `<span style="color:red;">${numTabuada} x ${incremento} = ${numTabuada * incremento}<br></span>`
+            // }
+            var cor = 'blue';
+            if(incremento % 2 != 0 ){
+                cor = 'red'
+            }
+
+            resultado.innerHTML += `<span style="color:${cor};">${numTabuada} x ${incremento} = ${numTabuada * incremento}<br></span>`
+
+            incremento += 1;
+        }
+    }
+</script>

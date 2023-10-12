@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 16</title>
+</head>
+<body>
+    <p>Digite quantas pessoas vão entrar no carro</p>
+    <input type="text" id="id_qtdPessoas">
+    <br><br><button onclick="carona()">#PartiuCarona</button>
+    <p id="resultado"></p>
+</body>
+</html>
+
+<script>
+    function carona(){
+        var qtdPessoas = Number(id_qtdPessoas.value);
+        var incremento = 2;
+        resultado.innerHTML = "";
+        resultado.innerHTML = "Entrou o 1º passageiro (que é o(a) motorista)<br>"
+
+        while(incremento <= qtdPessoas){
+            if(incremento <= 5){
+                resultado.innerHTML += `Entrou o ${incremento}º passageiro<br>`
+            }else{
+                resultado.innerHTML += `O ${incremento}º passageiro terá que esperar<br>`
+            }
+
+            incremento+=1;
+        }
+    }
+</script>

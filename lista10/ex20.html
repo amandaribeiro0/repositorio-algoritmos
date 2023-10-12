@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 20</title>
+</head>
+<body>
+    <p>Informe quantos depositos fez</p>
+    <input id="id_qtdDepositos">
+    <p>Informe o valor dos depositos</p>
+    <input id="id_valorDeposito">
+    <br><br><button onclick="acompanharGrana()">Acompanhar grana</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function acompanharGrana(){
+        var qtdDepositos = Number(id_qtdDepositos.value);
+        var valorDeposito = Number(id_valorDeposito.value);
+        
+        var incremento = 1;
+        while(incremento <= qtdDepositos){
+            resultado.innerHTML += `${incremento}º Mês: R$${incremento*valorDeposito}<br>`
+            incremento+=1;
+        }
+
+        resultado.innerHTML += `Total Guardado R$${qtdDepositos*valorDeposito}<br>`
+    }
+</script>

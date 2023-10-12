@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 23</title>
+</head>
+
+<body>
+    <p>Digite o limite inferior da amostragem</p>
+    <input id="id_limiteInferior">
+    <p>Digite o limite superior da amostragem</p>
+    <input id="id_limiteSuperior">
+    <p>Digite um número para testar a divisibilidade</p>
+    <input id="id_divisibilidade">
+    <br><br> <button onclick="contar()">Contar</button>
+    <br>
+    <div id="resultado"></div>
+</body>
+
+</html>
+<script>
+    function contar() {
+        var limiteInferior = Number(id_limiteInferior.value);
+        var limiteSuperior = Number(id_limiteSuperior.value);
+        var divisibilidade = Number(id_divisibilidade.value);
+        var incremento = limiteInferior;
+        var qtdTotalExibidos = 0;
+        var soma = 0;
+        var maiorNum = 0; 
+        var menorNum = 0;
+        
+        resultado.innerHTML = ""
+        if (limiteInferior > 1) {
+            if (limiteSuperior < 100 && limiteInferior < limiteSuperior) {
+                if (divisibilidade >= 3 && divisibilidade <= 10) {
+                    while (incremento <= limiteSuperior) {
+                        if(incremento % divisibilidade == 0){
+                            resultado.innerHTML += `${incremento}, `
+                            qtdTotalExibidos += 1;
+                            soma = soma + incremento;
+                            maiorNum = incremento;
+                        }
+                        if(limiteInferior % divisibilidade == 0){
+                            menorNum = limiteInferior;
+                        }else{
+                            limiteInferior +=1;
+                        }
+                    
+                    
+                        incremento+=1;
+                    }
+
+                } else {
+                    alert('Número para testar a divisibilidade deve estar entre 3 e 10')
+                }
+
+            } else {
+                alert('Limite superior deve ser maior que limite inferior e menor que 100')
+            }
+
+        } else {
+            alert('Limite inferior deve ser maior que 1')
+        }
+
+        resultado.innerHTML += `<br>QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtdTotalExibidos}
+                                <br>SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}
+                                <br>MÉDIA DOS NÚMEROS EXIBIDOS: ${soma/qtdTotalExibidos}
+                                <br>MAIOR NÚMERO EXIBIDO: ${maiorNum}
+                                <br>MENOR NÚMERO EXIBIDO: ${menorNum}`
+    }
+</script>

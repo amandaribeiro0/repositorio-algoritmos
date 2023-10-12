@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 18</title>
+</head>
+<body>
+    <p>Digite quantas Coca-Cola já bebeu na vida</p>
+    <input type="text" id="id_qtdCoca">
+    <br><br> <button onclick="verQtd()">Ver a quantidade</button> <br>
+    <div id="resultado" style="display: flex;">
+       
+    </div>
+</body>
+</html>
+<script>
+    function verQtd(){
+        var qtdCoca = Number(id_qtdCoca.value);
+        var incremento = 1;
+        
+        resultado.innerHTML = ""
+        while(incremento <= qtdCoca){
+            resultado.innerHTML += ` <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEsjt1-hb6FsI40YTpV_IdHM-NxxuQOBFnTA&usqp=CAU">`
+            incremento+=1;
+        }
+    }
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 10</title>
+</head>
+<body>
+    <p>Digite um intervalo crescente de valores númericos</p>
+    Primeiro número <input type="number" id="primeiroNumero"> <br>
+    Segundo número <input type="number" id="segundoNumero"> <br><br>
+    <button onclick="s2Pares()">S2 Pares</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function s2Pares(){
+        var primeiro_numero = Number(primeiroNumero.value);
+        var segundo_numero = Number(segundoNumero.value);
+        var incremento = 0
+        // var incremento = primeiro_numero;
+      
+        // if(primeiro_numero < segundo_numero){
+        //     while(incremento <= segundo_numero){
+        //         resultado.innerHTML += `${incremento} <br>`;
+        //         incremento+=2;
+            
+        //     };
+        // }else{
+        //     resultado.innerHTML += 'Intervalo invalido <br>'
+        // }
+
+        while(incremento <= segundo_numero) {
+            incremento += 2
+            if(incremento >= primeiro_numero && incremento <= segundo_numero) {
+                resultado.innerHTML += `${incremento} <br>`;
+            }
+        }
+
+        // if(primeiro_numero < segundo_numero){
+        //     while(incremento <= segundo_numero){
+        //         if(incremento %2 == 0 ){
+        //             resultado.innerHTML += `${incremento} <br>`;
+        //         }
+        //         incremento+=1;
+        //     };
+        // }else{
+        //     resultado.innerHTML += 'Intervalo invalido <br>'
+        // }
+    }
+
+    
+</script>

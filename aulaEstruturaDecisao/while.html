@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qtd frases:
+    <input type="text" id="id_numero">
+    <button onclick="clicar()">Clique</button>
+</body>
+</html>
+<script>
+    function clicar(){
+        var qtdFrases = Number(id_numero.value);
+
+        var incremento = 1;
+
+        while(incremento <= qtdFrases){
+            alert("Bom dia!");
+            incremento +=1;
+        }
+    }
+</script>

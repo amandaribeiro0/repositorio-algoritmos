@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 09</title>
+</head>
+<body>
+    <p>Digite um número:</p>
+    <input type="number" id="id_numero">
+    <p>Digite uma frase:</p>
+    <input type="text" id="id_frase">
+    <br><br> <button onclick="papagaio()">Papagaio</button>
+</body>
+</html>
+<script>
+    function papagaio(){
+        var numero = Number(id_numero.value);
+        var frase = id_frase.value;
+        var incremento = 0;
+
+        while(incremento < numero){
+            alert(frase);
+            incremento+=1;
+        };
+
+}
+</script>

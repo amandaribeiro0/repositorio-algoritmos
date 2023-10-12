@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 08</title>
+</head>
+<body>
+    <p>Digite um número:</p>
+    <input type="number" id="id_numero">
+    <button onclick="multiplos7()">Viva o 7!</button>
+    <br><br> <p id="resultado"></p>
+
+</body>
+</html>
+<script>
+    function multiplos7(){
+        var incremento = 0;
+        var numero = Number(id_numero.value);
+        
+        if(numero >= 0 && numero <= 200 ){
+            while(incremento <= numero){
+                resultado.innerHTML += `${incremento}<br>`
+                incremento +=7
+            }
+        }else{
+            alert("Digite um numero entre 0 e 200")
+        }
+    }
+</script>

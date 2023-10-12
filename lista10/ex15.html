@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 15</title>
+</head>
+<body>
+    <p>Digite a quantidade de elefantes</p>
+    <input type="number" id="id_qtdElefantes">
+    <br><br><button onclick="atazanarMedium()">Atazanar a médium</button>
+    <br><p id="resultado"></p>
+</body>
+<script>
+    function atazanarMedium() {
+        var qtdElefantes = Number(id_qtdElefantes.value);
+        var incremento = 2;
+
+        resultado.innerHTML += '1 elefante incomoda muita gente<br>'
+        
+        while (incremento <= qtdElefantes) {
+            resultado.innerHTML += incremento + ' elefantes incomodam';
+          
+            var iElefantes = 1;
+            while (iElefantes < incremento) {
+                resultado.innerHTML += ', incomodam';
+                iElefantes += 1;
+            }
+
+            resultado.innerHTML += ' muito mais!<br>';
+
+            incremento += 1;
+        }
+    }
+</script>
+</html>

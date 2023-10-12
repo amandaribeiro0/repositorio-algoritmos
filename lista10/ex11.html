@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 11</title>
+</head>
+<body>
+    <p>Quantas voltar o carro dará numa corrida?</p>
+    <input type="text" id="id_voltasCorrida">
+    <br><br> <button onclick="iniciarCorrida()">Iniciar corrida</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function iniciarCorrida(){
+        var voltasCorrida = Number(id_voltasCorrida.value);
+        var incremento = 1;
+
+        while (incremento <= voltasCorrida){
+            resultado.innerHTML += `Carro dando a ${incremento}º volta <br>`
+
+            if(incremento == voltasCorrida){
+                resultado.innerHTML += `Corrida finalizada`
+            }
+
+            incremento+=1;
+        }
+    }
+</script>

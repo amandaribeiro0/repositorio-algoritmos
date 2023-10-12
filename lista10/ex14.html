@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 14</title>
+</head>
+<body>
+    Digite sua idade
+    <input id="id_idade" type="text" onkeyup="myFunction()">
+    <br><br> <p id="resultado"></p>
+</body>
+</html>
+<script>
+   function myFunction(){
+        var idade = Number(id_idade.value);
+        var incremento = 0;
+        resultado.innerHTML =``
+
+         while (incremento <= idade){
+            
+             if(incremento >= 0 && incremento <=4){
+                resultado.innerHTML +=  `${incremento} anos Primeira infância <br>`;
+             } else if( incremento <= 6){
+                resultado.innerHTML +=  `${incremento} anos Pré-escolar<br>`;
+             } else if(incremento <= 10){
+                resultado.innerHTML +=  `${incremento} anos Segunda infância <br>`;
+             } else if(incremento <= 18){
+                resultado.innerHTML +=  `${incremento} anos Adolescência<br> `;
+             }else if(incremento <= 50){
+                resultado.innerHTML +=  `${incremento} anos Adulto <br>`;
+             } else if(incremento <= 100){
+                resultado.innerHTML +=  `${incremento} anos Melhor idade <br>`;
+             }else{
+                resultado.innerHTML +=  `${incremento} anos Matusalém <br>`;
+             }
+
+             incremento+=1;
+         }
+   }
+</script>

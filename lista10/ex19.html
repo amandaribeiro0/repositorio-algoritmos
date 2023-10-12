@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 19</title>
+</head>
+<body>
+    <p>Digite a quantidade de xicara de café com leite que já tomou na vida</p>
+    <input type="text" id="id_qtdXicara">
+    <br> <br> <button onclick="verQuantidade()">Ver a quantidade</button>
+    <br> <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function verQuantidade(){
+        var qtdXicara = Number(id_qtdXicara.value);
+        var incremento = 1;
+
+        while (incremento <= qtdXicara){
+            resultado.innerHTML += `${incremento} colheres com leite em pó e ${incremento*2} colheres de café em pó<br>`
+
+            incremento+=1;
+        }
+    }
+</script>

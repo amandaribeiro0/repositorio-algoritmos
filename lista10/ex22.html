@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 22</title>
+</head>
+<body>
+    <p>Informe quantos depositos fez</p>
+    <input id="id_qtdDepositos">
+    <p>Informe o valor dos depositos</p>
+    <input id="id_valorDeposito">
+    <br><br><button onclick="acompanharGrana()">Acompanhar grana</button>
+    <p id="resultado"></p>
+    
+</body>
+</html>
+<script>
+    function acompanharGrana(){
+        var qtdDepositos = Number(id_qtdDepositos.value);
+        var valorDeposito = Number(id_valorDeposito.value);
+        
+        var incremento = 1;
+        var total = 0;
+        var acresc = 0;
+        while(incremento <= qtdDepositos){
+
+            total = total + valorDeposito;
+            if(incremento % 3 === 0){
+                acresc = total*0.01;
+                total = total+acresc;
+                resultado.innerHTML += `${incremento}º Mês: R$${total} <img src="https://img.freepik.com/vetores-premium/logotipo-estrela-simples-e-moderno_535345-2471.jpg" width="18px"> <br>`
+            }else{
+                resultado.innerHTML += `${incremento}º Mês: R$${total}<br>`
+            }
+            
+            incremento+=1;
+        }
+
+        resultado.innerHTML += `Total Guardado R$${total}<br>`
+    }
+</script>

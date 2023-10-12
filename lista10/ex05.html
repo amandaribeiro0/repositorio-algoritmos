@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 05</title>
+</head>
+<body>
+    <button onclick="contar()">Números cabalísticos</button>
+    <p id="resultado"></p>
+</body>
+</html>
+
+<script>
+    function contar(){
+        var incremento = 1;
+
+        while(incremento <= 30){
+
+            if(incremento == 3 || incremento == 4 ||incremento == 7 || incremento == 10 || incremento == 12){
+                resultado.innerHTML += ``
+            }else {
+                resultado.innerHTML += `${incremento}<br>`
+            }
+
+            incremento+= 1
+        }
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 13</title>
+</head>
+<body>
+    <p>Quantos dias você faz musculação?</p>
+    <input type="number" id="id_musculacao"> <br><br>
+    <button onclick="rotinaMensal()">Exibir rotina mensal</button>
+    <br> <span id="resultado"></span>
+</body>
+</html>
+<script>
+    function rotinaMensal(){
+        var musculacao = Number(id_musculacao.value);
+        var incremento = 1;
+
+        while (incremento <= 30){
+            if((incremento - 1) % musculacao == 0){
+                resultado.innerHTML +=`Dia ${incremento} - Musculação <br>`
+            }else{
+                resultado.innerHTML += `Dia ${incremento} - Comer, dormir etc<br>`
+            }
+
+            incremento+=1;
+        }
+    }
+</script>
