@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 27</title>
+</head>
+
+<body>
+    <p>Informe o número limite da contagem</p>
+    <input id="id_numeroLimite">
+    <p>Informe o número para teste de divisibilidade</p>
+    <input id="id_numeroDivisor">
+    <br> <button onclick="somarNumeros()">Somar Número</button>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    function somarNumeros() {
+        var numeroLimite = Number(id_numeroLimite.value);
+        var numeroDivisor = Number(id_numeroDivisor.value);
+        var incremento = 1;
+        var somaMultiplos = 0;
+
+        resultado.innerHTML = " "
+        if (numeroLimite >= 0 && (numeroDivisor >= 1 && numeroDivisor <= numeroLimite)) {
+            while (incremento <= numeroLimite) {
+                if (incremento % numeroDivisor == 0) {
+                    resultado.innerHTML += `${incremento} &nbsp`
+                    somaMultiplos = somaMultiplos + incremento
+                }
+                incremento += 1;
+            }
+            resultado.innerHTML += `<br> Soma dos Múltiplos:${somaMultiplos}`
+        } else {
+            alert('Número limite deve ser positivo e,\n número para divisiblidade deve estar entre 1 e o número limite')
+        }
+    }
+</script>

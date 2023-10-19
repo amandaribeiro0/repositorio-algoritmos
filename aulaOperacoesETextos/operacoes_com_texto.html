@@ -124,10 +124,14 @@
   function analisarTextos() {
     var frase = input_frase.value;
 
+    // quantidade de caracteres
     span_qtd_letras.innerHTML = frase.length;
 
+    
     //   span_comeca_a.innerHTML = frase.startsWith("a");
     // span_comeca_e.innerHTML = frase.startsWith("e");
+
+    // frase começa com '?'
      if( frase.startsWith("a") == true){
       span_comeca_a.innerHTML = 'Sim'
      } else {
@@ -140,6 +144,7 @@
       span_comeca_e.innerHTML = 'Não'
      }
 
+     // frase termina com '?'
      if( frase.endsWith(".com") == true){
       span_termina_com.innerHTML = 'Sim'
      } else {
@@ -160,26 +165,38 @@
   
   //frase[frase.length - 1]
 
+  // primeria letra da frase - contagem começa do 0
   span_primeira_letra.innerHTML = frase[0];
 
+  //terceira letra da frase - 0,1,2 
   span_terceira_letra.innerHTML = frase[2];
 
+
+     // ultima letra da frase
+     // length pega a quantidade de caracteres
+     // -1 pq a contagem começa do 0
   span_ultima_letra.innerHTML = frase[frase.length - 1];
 
+  // posição de 'x' na frase
   span_primeira_arroba.innerHTML = frase.indexOf("@");
 
   span_indice_abc.innerHTML = frase.indexOf("abc");
 
+  // transforma tudo em maiusculo
   span_maiusculo.innerHTML = frase.toUpperCase();
 
+  //  transforma tudo em minusculo
   span_minusculo.innerHTML = frase.toLowerCase();
 
   span_frase_original.innerHTML = frase;
 
+  // trocar a por @
   span_arroba_no_a.innerHTML = frase.replace("a","@");
 
+  // tirar TODOS (replaceAll) espaços da frase
   span_sem_espacos.innerHTML = frase.replaceAll(" ","");
 
+  // trocar TODOS a por 4, s por 5, e por 3
   span_numeros.innerHTML = frase.replaceAll("a","4").replaceAll("s","5").replaceAll("e","3");
   }
 </script>

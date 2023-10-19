@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 25</title>
+</head>
+<body>
+    <p>Digite um numero</p>
+    <input id="numeroUsuario"><br><br>
+    <button onclick="dividir()">Ver divisores</button><br><br>
+    <div id="resultado"></div>
+</body>
+</html>
+
+<script>
+    function dividir() {
+        var dividendo = Number(numeroUsuario.value);
+        var divisor = 1;
+        var validarPrimo = 0;
+        resultado.innerHTML = ``;
+        while(divisor <= dividendo) {
+            if(dividendo % divisor == 0) {
+                resultado.innerHTML += `${divisor} <br>`
+                validarPrimo += 1
+            }
+            divisor += 1
+        }
+        if(validarPrimo == 2) {
+            resultado.innerHTML += `O número ${dividendo} é primo`
+        }
+    }
+</script>
