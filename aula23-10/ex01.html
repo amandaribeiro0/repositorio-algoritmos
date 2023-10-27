@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade para pratica</title>
+</head>
+
+<body>
+    <h3>Abertura do Quiosque</h3>
+    <p>Digite a quantidade de água engarrafada no estoque</p>
+    <input id="id_qtdAguaEngarrafada">
+
+    <p>Digite a quantidade de coco fechado no estoque</p>
+    <input id="id_qtdCocoFechado">
+
+    <br><br><button onclick="abrirQuiosque()">Abrir o quiosque</button>
+
+    <!-- -->
+
+    <h3>Estoque Inicial</h3>
+    <p id="estoqueInicial"></p>
+
+    <!--  -->
+    <h3>Registro das Operações de venda</h3>
+    <p>Digite a quantidade de produto vendida</p>
+    <input id="id_qtdVendida">
+
+    <p>Selecione qual foi o produto vendido</p>
+    <select id="id_produtoVendido">
+        <option value="Água Engarrafada">Água Engarrafada</option>
+        <option value="Coco Fechado">Coco Fechado</option>
+    </select>
+    <button onclick="registrarVenda()">Registrar a Venda</button>
+    <button onclick="encerrarTurno()">Encerrar o Turno</button>
+    <p id="resultadoVendas"></p>
+
+
+
+</body>
+
+</html>
+<script>
+    var estoqueAguaEngarrafada = 0;
+    var estoqueCocoFechado = 0;
+    var qtdVendasAgua = 0;
+    var qtdVendasCoco = 0;
+    var percentAguaVendida = 0;
+    var percentCocoVendido = 0;
+    var qtdCocoFechado = 0;
+    var qtdVendida = 0;
+    var qtdAguaEngarrafada = 0;
+
+    function abrirQuiosque() {
+        qtdAguaEngarrafada = Number(id_qtdAguaEngarrafada.value);
+        qtdCocoFechado = Number(id_qtdCocoFechado.value);
+        qtdVendida = Number(id_qtdVendida.value);
+
+
+        if (qtdAguaEngarrafada < 100) {
+            alert("Com essa quantidade de Água engarrafada não dá para abrir o quiosque");
+        } else if (qtdCocoFechado < 200) {
+            alert("Com essa quantidade de Coco fechado não dá para abrir o quiosque")
+        } else {
+            if (qtdAguaEngarrafada >= 100 && qtdAguaEngarrafada <= 1000) {
+                alert("Engarrafe mais água de coco")
+            }
+            if (qtdCocoFechado >= 200 && qtdCocoFechado <= 2000) {
+                alert("Compre mais cocos")
+            }
+
+            estoqueAguaEngarrafada = qtdAguaEngarrafada;
+            estoqueCocoFechado = qtdCocoFechado;
+
+            estoqueInicial.innerHTML += `Água engarrafada: <b>${estoqueAguaEngarrafada}</b><br>
+                                        Coco Fechado: <b>${estoqueCocoFechado}</b>`
+        }
+    }
+
+    function registrarVenda() {
+        var qtdVendida = Number(id_qtdVendida.value);
+        var produtoVendido = id_produtoVendido.value;
+
+        if (produtoVendido == 'Coco Fechado') {
+            estoqueCocoFechado = estoqueCocoFechado - qtdVendida;
+            resultadoVendas.innerHTML += `Com a venda de ${qtdVendida} de ${produtoVendido} o saldo no estoque é de ${estoqueCocoFechado}<br>`
+            qtdVendasCoco += qtdVendida;
+        } else {
+            estoqueAguaEngarrafada = estoqueAguaEngarrafada - qtdVendida;
+            resultadoVendas.innerHTML += `Com a venda de ${qtdVendida} de ${produtoVendido} o saldo no estoque é de ${estoqueAguaEngarrafada}<br>`
+            qtdVendasAgua += qtdVendida;
+        }
+
+    }
+
+    function encerrarTurno() {
+        resultadoVendas.innerHTML = `
+            <b>Vendas de Água engarrafada</b> <br>
+            Saldo de produto no estoque: ${estoqueAguaEngarrafada} <br>
+            Quantidade de vendas: ${qtdVendasAgua}  <br>
+            Porcentagem das vendas: ${(qtdVendasAgua / qtdAguaEngarrafada) * 100}% <br>
+
+           <b>Vendas de Coco fechado </b>  <br>
+            Saldo de produto no estoque: ${estoqueCocoFechado}  <br>
+            Quantidade de vendas: ${qtdVendasCoco} <br>
+            Porcentagem das vendas: ${(qtdVendasCoco / qtdCocoFechado) * 100}% <br>
+        `
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03</title>
+</head>
+<body>
+    <p>Digite o bairro</p>
+    <input id="id_bairro">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+    <p>Digite o número do lugar onde morou</p>
+    <input id="id_numBairro">
+    <button onclick="relembrarBairro()">Relembrar moradia</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    var listaBairro = [];
+    var bairro = '';
+    var numBairro = 0;
+    function cadastrarBairro(){
+        bairro = id_bairro.value.toLowerCase();
+
+        listaBairro.push(bairro);
+    }
+
+    function relembrarBairro(){
+        numBairro = Number(id_numBairro.value);
+
+        if(numBairro > listaBairro.length){
+            resultado.innerHTML = `Você ainda não morou num ${numBairro}º bairro`
+        }else{
+            resultado.innerHTML = `${numBairro}º ${listaBairro[numBairro-1]}`
+        }
+    }
+</script>
