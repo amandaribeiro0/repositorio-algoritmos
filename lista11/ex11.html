@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 11</title>
+</head>
+
+<body>
+    <p>Digite o preço do produto</p>
+    <input id="id_precoProduto">
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    <button onclick="attEstoque()">Atualizar estoque</button>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    var listaPrecos = [];
+
+    function cadastrarProduto() {
+        listaPrecos.push(Number(id_precoProduto.value));
+    }
+
+    function attEstoque() {
+        var somaPrecos = 0;
+        for (var contador = 0; contador < listaPrecos.length; contador += 1) {
+            somaPrecos += listaPrecos[contador];
+        }
+        resultado.innerHTML += `Você tem ${listaPrecos.length} produtos cadastrados no estoque<br> Seu estoque vale R$${somaPrecos}`
+    }
+</script>

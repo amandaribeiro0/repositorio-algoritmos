@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 10</title>
+</head>
+
+<body>
+    <p>Digite as linhas de ônibus que pegou essa semana</p>
+    <input id="id_linhaOnibus">
+    <button onclick="gravarBusao()">Gravar busão</button>
+    <p>Digite a linha que deseja pesquisar:</p>
+    <input id="id_pesquisarLinha">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    var listaOnibus = [];
+    function gravarBusao() {
+        listaOnibus.push(id_linhaOnibus.value);
+
+        resultado.innerHTML = "";
+        for (var contador = listaOnibus.length; contador > 0; contador -= 1) {
+            resultado.innerHTML += `${listaOnibus[contador - 1]}<br>`
+        }
+    }
+
+    function pesquisar() {
+        var linhaPesquisada = id_pesquisarLinha.value;
+        var qtdVezesNaLinha = 0;
+        var vezesNaLinha = [];
+        for (var posicao = 0; posicao < listaOnibus.length; posicao += 1) {
+            if (listaOnibus[posicao] == linhaPesquisada) {
+                qtdVezesNaLinha += 1;
+                vezesNaLinha.push(posicao + 1);
+            }
+        }
+
+        if (qtdVezesNaLinha > 0) {
+            resultado.innerHTML += `<br>Você já pegou essa linha  ${qtdVezesNaLinha} vezes, nessa ordem ${vezesNaLinha}`
+        } else {
+            resultado.innerHTML += "<br>Você nunca pegou essa linha"
+        }
+    }
+
+</script>

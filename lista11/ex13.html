@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 13</title>
+</head>
+
+<body>
+    <p>Indique o resultado</p>
+    <select id="id_resultadoJogo">
+        <option value="Vitoria">Vitoria</option>
+        <option value="Empate">Empate</option>
+        <option value="Derrota">Derrota</option>
+    </select>
+
+    <button onclick="registrarJogo()">Registrar jogo</button>
+    <p id="resultado"></p>
+
+    <p>Indique qual jogo quer saber o resultado</p>
+    <input id="id_pesquisaResultado" onkeyup="pesquisarJogo()">
+    <p id="resultadoPesquisa"></p>
+</body>
+
+</html>
+<script>
+    var listaResultados = [];
+
+    function registrarJogo() {
+        listaResultados.push(id_resultadoJogo.value);
+        var qtdVitorias = 0;
+        var qtdDerrotas = 0;
+        var qtdEmpate = 0;
+
+
+        resultado.innerHTML = '';
+        for (var contador = 0; contador <= listaResultados.length; contador += 1) {
+            if (listaResultados[contador] == 'Vitoria') {
+                qtdVitorias += 1;
+            } else if (listaResultados[contador] == 'Empate') {
+                qtdEmpate += 1;
+            } else if (listaResultados[contador] == 'Derrota') {
+                qtdDerrotas += 1
+            }
+        }
+
+        var totalPontos = (qtdVitorias * 3) + qtdEmpate;
+
+        var totalPontosPossiveis = 3 * listaResultados.length;
+
+        resultado.innerHTML += `O time teve: ${qtdVitorias} vitórias, ${qtdEmpate} empates, ${qtdDerrotas} derrotas <br>
+                    Pontuação total: ${totalPontos}pontos <br>
+                    Aproveitamento: ${(totalPontos / totalPontosPossiveis) * 100}% <br>`
+
+    }
+
+    function pesquisarJogo() {
+        var pesquisaResultado = Number(id_pesquisaResultado.value);
+
+        if (listaResultados.length >= pesquisaResultado) {
+            resultadoPesquisa.innerHTML = `No  ${pesquisaResultado}º jogo o time obteve uma ${listaResultados[pesquisaResultado - 1]} <br>`
+        } else {
+            resultadoPesquisa.innerHTML = `Não foi cadastrado um ${pesquisaResultado}º jogo<br>`
+        }
+    }
+
+</script>

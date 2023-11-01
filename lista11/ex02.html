@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex 02</title>
 </head>
+
 <body>
     <p>Digite o destino da viagem:</p>
     <input id="id_destinoViagem">
@@ -14,37 +16,38 @@
     <button onclick="ultimaViagem()">Última viagem"</button>
     <p id="resultado"></p>
 </body>
+
 </html>
 <script>
     var listaViagem = [];
     var destinoViagem = '';
 
-    function addDestino(){
-        destinoViagem  = id_destinoViagem.value;
+    function addDestino() {
+        destinoViagem = id_destinoViagem.value;
 
         listaViagem.push(destinoViagem);
     }
 
-    function primeiraViagem(){
+    function primeiraViagem() {
         if (listaViagem.length >= 1) {
             resultado.innerHTML = `${listaViagem[0]} </br>`
-        }else{
+        } else {
             resultado.innerHTML = "Ainda não viajou"
         }
     }
 
-    function terceiraViagem(){
-        if(listaViagem.length >= 3){
+    function terceiraViagem() {
+        if (listaViagem.length >= 3) {
             resultado.innerHTML = `${listaViagem[2]} </br>`
-        }else{
-            resultado.innerHTML  = "Ainda não fez a terceira viagem"
+        } else {
+            resultado.innerHTML = "Ainda não fez a terceira viagem"
         }
     }
 
-    function ultimaViagem(){
+    function ultimaViagem() {
         if (listaViagem.length >= 1) {
-            resultado.innerHTML = `${listaViagem[listaViagem.length-1]} </br>`
-        }else{
+            resultado.innerHTML = `${listaViagem[listaViagem.length - 1]} </br>`
+        } else {
             resultado.innerHTML = "Ainda não viajou"
         }
     }

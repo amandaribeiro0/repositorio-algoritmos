@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 15</title>
+</head>
+
+<body>
+    <p>Nome do produto</p>
+    <input id="id_nomeProduto">
+    <p>Preço de compra</p>
+    <input id="id_precoCompra">
+    <button onclick="cadastrarCompra()">Cadastrar</button>
+    <button onclick="relatorioEstoque()">Relatorio estoque</button>
+    <p id="resultado"></p>
+</body>
+
+</html>
+<script>
+    var listaProdutos = [];
+    var listaPrecos = [];
+
+    function cadastrarCompra() {
+        listaProdutos.push(id_nomeProduto.value);
+        listaPrecos.push(Number(id_precoCompra.value));
+    }
+
+    function relatorioEstoque() {
+        resultado.innerHTML = '';
+        var maiorValor = listaPrecos[0];
+        var menorValor = listaPrecos[0];
+        var indiceMaior = 0;
+        var indiceMenor = 0;
+        var somaPrecosCompra = 0;
+        var somaPrecosVenda = 0;
+
+        resultado.innerHTML += `Total de produtos: ${listaProdutos.length}<br><br>`
+
+        for (var contador = 0; contador < listaProdutos.length; contador += 1) {
+            resultado.innerHTML += `Produto ${contador + 1}: ${listaProdutos[contador]}<br>
+                                    Preço de compra: ${listaPrecos[contador]}. Vende por: ${listaPrecos[contador] * 1.25}<br><br>`
+
+            somaPrecosCompra += listaPrecos[contador];
+            somaPrecosVenda += listaPrecos[contador] * 1.25;
+
+            if (listaPrecos[contador] <= menorValor) {
+                menorValor = listaPrecos[contador]
+                indiceMenor = contador;
+            };
+
+            if (listaPrecos[contador] >= maiorValor) {
+                maiorValor = listaPrecos[contador]
+                indiceMaior = contador
+            }
+
+        }
+
+        resultado.innerHTML += `Nome do produto mais caro: ${listaProdutos[indiceMaior]}<br>
+                                     Nome do produto mais barato: ${listaProdutos[indiceMenor]}<br>
+                                     A soma dos preços de compra: ${somaPrecosCompra}<br>
+                                     A média dos preços de venda: ${somaPrecosVenda / listaProdutos.length}`
+    }
+</script>
