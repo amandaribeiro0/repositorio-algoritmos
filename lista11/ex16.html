@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 16</title>
+</head>
+<body>
+    <p>Digite um número qualquer</p>
+    <input id="id_numeroQualquer">
+    <br> <br><button onclick="analisarHistorico()">Analisar histórico</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    var listaNumeros = [];
+
+    function analisarHistorico(){
+        listaNumeros.push(Number(id_numeroQualquer.value));
+        
+        resultado.innerHTML = "";
+
+        var maiorNumero = listaNumeros[0];
+        var menorNumero = listaNumeros[0];
+
+
+        for(var posicao = 0; posicao < listaNumeros.length; posicao ++){
+            resultado.innerHTML += `${posicao+1}º Número: ${listaNumeros[posicao]}<br>`;
+
+            if(listaNumeros[posicao] > maiorNumero){
+                maiorNumero = listaNumeros[posicao]
+            }
+            if(listaNumeros[posicao] < menorNumero){
+                menorNumero = listaNumeros[posicao]
+            }
+        }
+
+        resultado.innerHTML += `<br>Maior : ${maiorNumero} <br> Menor: ${menorNumero}`
+    }
+</script>

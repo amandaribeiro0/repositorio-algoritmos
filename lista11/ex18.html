@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 17</title>
+</head>
+
+<body>
+    <div id="divBody">
+        <h1>Análise de performance de Alunos - Registro</h1>
+        <label for="">Entre com o Nome do aluno:</label>
+        <input id="id_nomeAluno"> <br><br>
+        <label for="">Entre com a nota do aluno na AC-1:</label>
+        <input id="id_notaAlunoAC1"> <br>
+        <label for="">Entre com a nota do aluno na AC-2:</label>
+        <input id="id_notaAlunoAC2"><br>
+        <label for="">Entre com a nota do aluno na AC-3:</label>
+        <input id="id_notaAlunoAC3">
+        <br><br>
+        <button onclick="registrar()">Registrar</button> <button onclick="analisar()">Analisar</button>
+        <p id="resultado"></p>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var listaNomes = [];
+    var listaNotasAC1 = [];
+    var listaNotasAC2 = [];
+    var listaNotasAC3 = [];
+
+    function registrar() {
+        var nomeAluno = id_nomeAluno.value;
+        var notaAlunoAC1 = Number(id_notaAlunoAC1.value);
+        var notaAlunoAC2 = Number(id_notaAlunoAC2.value);
+        var notaAlunoAC3 = Number(id_notaAlunoAC3.value);
+        if (nomeAluno == '') {
+            alert("Nome do aluno não pode ser nulo")
+        } else {
+            listaNomes.push(nomeAluno)
+        }
+
+        if (notaAlunoAC1 < 0 || notaAlunoAC1 > 10 || notaAlunoAC2 < 0 || notaAlunoAC2 > 10 || notaAlunoAC3 < 0 || notaAlunoAC3 > 10 ) {
+            alert("NotaS deveM estar entre 0 e 10")
+        } else {
+            listaNotasAC1.push(notaAlunoAC1);
+            listaNotasAC2.push(notaAlunoAC2);
+            listaNotasAC3.push(notaAlunoAC3)
+        }
+
+        resultado.innerHTML = '';
+        for (var contador = listaNotasAC1.length; contador > 0; contador-=1) {
+            resultado.innerHTML += `Aluno: ${listaNomes[contador-1]} | Notas: AC1:${listaNotasAC1[contador-1]} &nbsp AC2:${listaNotasAC2[contador-1]} &nbsp AC3:${listaNotasAC3[contador-1]}<br>`
+        }
+
+    }
+
+    function analisar() {
+        divBody.innerHTML = `
+            <h1>Análise de performance de Alunos - Pesquisa</h1>
+
+            <label for="">Entre com o intervalo de notas:</label> 
+
+            <input type="number" id="id_inicioIntervalo" placeholder="De"> 
+
+            <input type="number" id="id_fimIntervalo" placeholder="Até">
+
+            <br><br><button onclick="pesquisar()" >Pesquisar</button>
+
+            <p id="resultado"></p>`
+            
+    }
+
+
+    function pesquisar(){
+        var inicioIntervalo = Number(id_inicioIntervalo.value);
+        var fimIntervalo = Number(id_fimIntervalo.value);
+        var alunosNoIntervalo = 0;
+        
+        var maiorNota = listaNotas[0];
+        var menorNota = listaNotas[0];
+        var somatoriaNotas = 0;
+
+        if( inicioIntervalo < 0 || inicioIntervalo > 10 || fimIntervalo < 0 || fimIntervalo > 10 || fimIntervalo < inicioIntervalo ){
+            alert("Intervalo invalido")
+        }else{
+            resultado.innerHTML = '';
+            for(var posicao = 0; posicao < listaNotas.length; posicao++){
+                if(listaNotas[posicao] >= inicioIntervalo && listaNotas[posicao] <= fimIntervalo){
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotas[posicao]} <br>`
+                    alunosNoIntervalo ++
+                }
+
+                if(listaNotas[posicao] < menorNota){
+                    menorNota = listaNotas[posicao]
+                }
+                if(listaNotas[posicao] > maiorNota){
+                    maiorNota = listaNotas[posicao]
+                }
+
+                somatoriaNotas += listaNotas[posicao]
+            }
+        }
+
+        resultado.innerHTML += `
+            <br><br>Total de alunos registrados: <b>${listaNomes.length}</b> 
+            <br>
+            Total de alunos listado: <b> ${alunosNoIntervalo}</b>
+            <br>
+            Maior Nota: <b> ${maiorNota}</b> 
+            <br>
+            Menor Nota: <b>${menorNota}</b> 
+            <br>
+            Média da Nota: <b>${somatoriaNotas/listaNotas.length}</b> `
+    }
+
+</script>
