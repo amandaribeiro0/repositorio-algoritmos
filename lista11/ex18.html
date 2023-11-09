@@ -23,6 +23,9 @@
         <p id="resultado"></p>
     </div>
 
+
+
+
 </body>
 
 </html>
@@ -43,7 +46,7 @@
             listaNomes.push(nomeAluno)
         }
 
-        if (notaAlunoAC1 < 0 || notaAlunoAC1 > 10 || notaAlunoAC2 < 0 || notaAlunoAC2 > 10 || notaAlunoAC3 < 0 || notaAlunoAC3 > 10 ) {
+        if (notaAlunoAC1 < 0 || notaAlunoAC1 > 10 || notaAlunoAC2 < 0 || notaAlunoAC2 > 10 || notaAlunoAC3 < 0 || notaAlunoAC3 > 10) {
             alert("NotaS deveM estar entre 0 e 10")
         } else {
             listaNotasAC1.push(notaAlunoAC1);
@@ -52,8 +55,8 @@
         }
 
         resultado.innerHTML = '';
-        for (var contador = listaNotasAC1.length; contador > 0; contador-=1) {
-            resultado.innerHTML += `Aluno: ${listaNomes[contador-1]} | Notas: AC1:${listaNotasAC1[contador-1]} &nbsp AC2:${listaNotasAC2[contador-1]} &nbsp AC3:${listaNotasAC3[contador-1]}<br>`
+        for (var contador = listaNotasAC1.length; contador > 0; contador -= 1) {
+            resultado.innerHTML += `Aluno: ${listaNomes[contador - 1]} | Notas: AC1:${listaNotasAC1[contador - 1]} &nbsp AC2:${listaNotasAC2[contador - 1]} &nbsp AC3:${listaNotasAC3[contador - 1]}<br>`
         }
 
     }
@@ -68,53 +71,70 @@
 
             <input type="number" id="id_fimIntervalo" placeholder="Até">
 
-            <br><br><button onclick="pesquisar()" >Pesquisar</button>
+            <br><br><button onclick="pesquisar()" >Pesquisar todas as notas</button>
+
+            <br><br>
+            <select id="id_provas">
+                <option value="AC1">AC1</option>
+                <option value="AC2">AC2</option>
+                <option value="AC3">AC3</option>
+            </select>
+            <button onclick="pesquisarUmaNota()">Pesquisar uma nota</button>
 
             <p id="resultado"></p>`
-            
+
     }
 
 
-    function pesquisar(){
+    function pesquisar() {
         var inicioIntervalo = Number(id_inicioIntervalo.value);
         var fimIntervalo = Number(id_fimIntervalo.value);
-        var alunosNoIntervalo = 0;
-        
-        var maiorNota = listaNotas[0];
-        var menorNota = listaNotas[0];
-        var somatoriaNotas = 0;
 
-        if( inicioIntervalo < 0 || inicioIntervalo > 10 || fimIntervalo < 0 || fimIntervalo > 10 || fimIntervalo < inicioIntervalo ){
+        if (inicioIntervalo < 0 || inicioIntervalo > 10 || fimIntervalo < 0 || fimIntervalo > 10 || fimIntervalo < inicioIntervalo) {
             alert("Intervalo invalido")
-        }else{
+        } else {
             resultado.innerHTML = '';
-            for(var posicao = 0; posicao < listaNotas.length; posicao++){
-                if(listaNotas[posicao] >= inicioIntervalo && listaNotas[posicao] <= fimIntervalo){
-                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotas[posicao]} <br>`
-                    alunosNoIntervalo ++
+            for (var posicao = 0; posicao < listaNotasAC1.length; posicao++) {
+                if (listaNotasAC1[posicao] >= inicioIntervalo && listaNotasAC1[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC1[posicao]} na AC1 <br>`
                 }
 
-                if(listaNotas[posicao] < menorNota){
-                    menorNota = listaNotas[posicao]
-                }
-                if(listaNotas[posicao] > maiorNota){
-                    maiorNota = listaNotas[posicao]
+                if (listaNotasAC2[posicao] >= inicioIntervalo && listaNotasAC2[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC2[posicao]} na AC2 <br>`
                 }
 
-                somatoriaNotas += listaNotas[posicao]
+                if (listaNotasAC3[posicao] >= inicioIntervalo && listaNotasAC3[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC3[posicao]} na AC3<br>`
+                }
             }
         }
 
-        resultado.innerHTML += `
-            <br><br>Total de alunos registrados: <b>${listaNomes.length}</b> 
-            <br>
-            Total de alunos listado: <b> ${alunosNoIntervalo}</b>
-            <br>
-            Maior Nota: <b> ${maiorNota}</b> 
-            <br>
-            Menor Nota: <b>${menorNota}</b> 
-            <br>
-            Média da Nota: <b>${somatoriaNotas/listaNotas.length}</b> `
     }
 
+    function pesquisarUmaNota(){
+        var provas = id_provas.value;
+        var inicioIntervalo = Number(id_inicioIntervalo.value);
+        var fimIntervalo = Number(id_fimIntervalo.value);
+        
+        if(provas == 'AC1'){
+            for (var posicao = 0; posicao < listaNotasAC1.length; posicao++) {
+                if (listaNotasAC1[posicao] >= inicioIntervalo && listaNotasAC1[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC1[posicao]} na AC1 <br>`
+                }
+            }
+        } else if( provas == 'AC2'){
+            for (var posicao = 0; posicao < listaNotasAC2.length; posicao++) {
+                if (listaNotasAC2[posicao] >= inicioIntervalo && listaNotasAC2[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC2[posicao]} na AC2 <br>`
+                }
+            }
+        } else{
+            for (var posicao = 0; posicao < listaNotasAC3.length; posicao++) {
+                if (listaNotasAC3[posicao] >= inicioIntervalo && listaNotasAC3[posicao] <= fimIntervalo) {
+                    resultado.innerHTML += `O aluno ${listaNomes[posicao]} ficou com a nota ${listaNotasAC3[posicao]} na AC3<br>`
+                }
+            }
+        }
+        
+    }
 </script>
