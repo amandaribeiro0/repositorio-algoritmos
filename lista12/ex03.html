@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 03</title>
+</head>
+<style>
+    #resultado{
+        border: 5px solid blue;
+        height: 150px;
+        width: 150px;
+        text-align: center;
+        font-size: 100px;
+    }
+</style>
+<body>
+    <button onclick="jogarDado()">Jogar dado</button>
+    <br> <br>
+    <div id="resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function jogarDado(){
+        var numAleatorio = parseInt(Math.random() * 20 + 1);
+
+        resultado.innerHTML = numAleatorio
+    }
+</script>

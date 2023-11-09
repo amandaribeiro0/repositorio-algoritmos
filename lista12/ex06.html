@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 06</title>
+</head>
+<body>
+    <button onclick="sortearMomento()">Sortear momento do dia</button> <br>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function sortearMomento(){
+        var horaAleatoria = parseInt(Math.random() * 23)
+
+        if(horaAleatoria <= 11){
+            resultado.innerHTML += `Bom dia, flor do dia, são ${horaAleatoria}h! <br>`
+        } else if( horaAleatoria <= 17){
+            resultado.innerHTML += `Boa tarde, já vai tarde! São ${horaAleatoria}h! <br>`
+        }else{
+            resultado.innerHTML += `Boa noite, durma bem! São ${horaAleatoria}h!<br>`
+        }
+    }
+</script>

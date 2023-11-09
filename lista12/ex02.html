@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 02</title>
+</head>
+<body>
+    <button onclick="sortearTime()">Sortear time</button>
+    <br><br>
+    <span id="resultado"></span>
+</body>
+</html>
+
+<script>
+    var listaImagens = ['https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/874.png',
+                        'https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/2026.png',
+                        'https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png',
+                        'https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/6079.png'];
+    
+    function sortearTime(){
+        var numAleatorio = parseInt(Math.random() * listaImagens.length)
+
+        resultado.innerHTML = `<img src="${listaImagens[numAleatorio]}" height="150px">`
+    }
+</script>

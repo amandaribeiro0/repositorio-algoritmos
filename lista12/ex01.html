@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 01</title>
+</head>
+<body>  
+    <button onclick="gerarNum()">Gerar número</button>
+    <p id="resultado"></p>
+</body>
+</html>
+<script>
+    function gerarNum(){
+        var numAleatorio = Math.random().toFixed(4)
+
+        resultado.innerHTML = numAleatorio;
+
+        if(numAleatorio > 0.5){
+            resultado.innerHTML += "<br>Eu arredondaria para 1"
+        }else{
+            resultado.innerHTML += '<br>Eu arrendondaria para 0'
+        }
+    }
+</script>

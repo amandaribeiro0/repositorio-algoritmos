@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 05</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar</button> <br>
+    <span id="resultado"></span>
+</body>
+</html>
+<script>
+    var listaJojenpo = ['https://jokenpo-lime.vercel.app/pedra.png','https://jokenpo-lime.vercel.app/papel.png','https://jokenpo-lime.vercel.app/tesoura.png']
+
+    function jogar(){
+        var posicaoAleatoria = parseInt(Math.random() * listaJojenpo.length)
+        resultado.innerHTML = `<img src="${listaJojenpo[posicaoAleatoria]}" height="200px">`
+    }
+</script>
